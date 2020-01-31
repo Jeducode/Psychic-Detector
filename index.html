@@ -4,146 +4,131 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
     />
-
+    <link rel="stylesheet" href="style.css">
     <title>Document</title>
   </head>
-  <body class=" container blue-grey darken-4 ">
+  <body class=" container ">
+
+    <div id="section-one">
+
     <div class="row">
       <!-- Header -->
       <div class="col s12 ">
-        <div class="card blue-grey darken-1">
-          <div class="card-content white-text">
-            <span class="card-title center-align"
-              >TEST YOUR PSYCHIC POWERS</span
-            >
-            <p>
-              Do you think you are good at Guessing? Or have you ever thought
+        <h3 class="white-text center-align"
+        >TEST YOUR PSYCHIC POWERS</h3 >
+    
+        <div id="welcome-card" class="card ">
+          <div class="card-content">
+            <p class= "center-align white-text">
+              Do you think you are good at guessing? Or have you ever thought
               you have Pyschic Powers and can see what others can't see?
             </p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Details form -->
-
-      <form class="col s12">
-        <div class="row">
-          <div class="input-field col s12">
-            <input id="name" type="text" class="validate" />
-            <label for="name">Full Name</label>
-          </div>
-
-          <div class="col s12 ">
-            <div class="card blue-grey darken-1">
-              <div class="card-content white-text">
-                <span class="card-title center-align"
-                  >CHOOSE DIFFICULTY LEVEL</span
-                >
-              </div>
-            </div>
-            <p>
-              <label>
-                <input name="group1" type="radio" checked />
-                <span>Red</span>
-              </label>
-            </p>
-            <p>
-              <label>
-                <input name="group1" type="radio" />
-                <span>Yellow</span>
-              </label>
-            </p>
-            <p>
-              <label>
-                <input class="with-gap" name="group1" type="radio" />
-                <span>Green</span>
-              </label>
-            </p>
-            <button class="btn-large">Submit</button>
-          </div>
-        </div>
-      </form>
-
-      <!-- Cards -->
-      <div class="row">
-        <!-- Card 1 -->
-        <div class="col s12 m4">
-          <div class="card-panel teal">
-            <span class="white-text"
-              >I am a very simple card. I am good at containing small bits of
-              information. I am convenient because I require little markup to
-              use effectively. I am similar to what is called a panel in other
-              frameworks.
-            </span>
-          </div>
-        </div>
-
-        <!-- Card 2 -->
-        <div class="col s12 m4">
-          <div class="card-panel teal">
-            <span class="white-text"
-              >I am a very simple card. I am good at containing small bits of
-              information. I am convenient because I require little markup to
-              use effectively. I am similar to what is called a panel in other
-              frameworks.
-            </span>
-          </div>
-        </div>
-
-        <!-- Card 3 -->
-        <div class="col s12 m4">
-          <div class="card-panel teal">
-            <span class="white-text"
-              >I am a very simple card. I am good at containing small bits of
-              information. I am convenient because I require little markup to
-              use effectively. I am similar to what is called a panel in other
-              frameworks.
-            </span>
-          </div>
-        </div>
-
-        <!-- Card 4 -->
-        <div class="col s12 m4">
-          <div class="card-panel teal">
-            <span class="white-text"
-              >I am a very simple card. I am good at containing small bits of
-              information. I am convenient because I require little markup to
-              use effectively. I am similar to what is called a panel in other
-              frameworks.
-            </span>
-          </div>
-        </div>
-
-        <!-- Card 5 -->
-        <div class="col s12 m4">
-          <div class="card-panel teal">
-            <span class="white-text"
-              >I am a very simple card. I am good at containing small bits of
-              information. I am convenient because I require little markup to
-              use effectively. I am similar to what is called a panel in other
-              frameworks.
-            </span>
-          </div>
-        </div>
-
-        <!-- Card 6 -->
-        <div class="col s12 m4">
-          <div class="card-panel teal">
-            <span class="white-text"
-              >I am a very simple card. I am good at containing small bits of
-              information. I am convenient because I require little markup to
-              use effectively. I am similar to what is called a panel in other
-              frameworks.
-            </span>
+      
           </div>
         </div>
       </div>
     </div>
+
+      <!-- Details form --> 
+
+      <form id='player-form' class="player-form col s12">
+
+        <div class="row">
+          <div class=" input-field col s12">
+            <input id="name" type="text" class="  white-text validate" />
+            <label for="name">Full Name</label>
+          </div>
+
+            <h4 class="center-align white-text">CHOOSE DIFFICULTY LEVEL</h4>
+            </div>
+            <p>
+              <label>
+                <input class="with-gap" name="game" value="easy" type="radio" checked />
+                <span>Easy</span>
+              </label>
+            </p>
+            <p>
+              <label>
+                <input class="with-gap" name="game" value="medium" type="radio" />
+                <span>Medium</span>
+              </label>
+            </p>
+            <p>
+              <label>
+                <input class="with-gap" name="game" value="Difficult" type="radio" />
+                <span>Difficult</span>
+              </label>
+            </p>
+            <!-- Form submit and modal Trigger -->
+            <button data-target="modal1" id="form-submit" class="btn-large modal-trigger"">Submit</button>
+          </div>
+        </div>
+      </form>
+    
+  <!-- Modal Structure -->
+  <div id="modal1" class="modal">
+    <div class="modal-content">
+      <div id='one' class="carousel carousel-slider center">
+
+        <div class="carousel-fixed-item center">
+          <a class=" prev-slide  btn waves-effect white  black-text">Previous</a>
+          <a class=" next-slide btn waves-effect white  black-text">Next</a>
+        </div>
+       
+        <div id= "slider-1"class="carousel-item  blue-grey darken-2 white-text" href="#one!">
+          <!-- <h3 id = "slider-pyschic-name">  </h3> -->
+          <h2 id="slider1-inner">You want to how good you are at Guessing? Or maybe you have Pyschic Powers?</h2>
+          <h2>Well, let's find out together</h2>
+        </div>
+
+        <div id ="slider-2"class="carousel-item blue-grey darken-2 white-text" href="#three!">
+          
+          <h2 id= "inner-game-lev" class="white-text">RULES OF THE GAME</h2>
+          <h2> <strong>  You have TEN games. In each game, there would be three cards. For each game, Guess the right card. </strong></h2>
+        </div>
+
+        <div class="carousel-item blue-grey darken-2 white-text" href="#four!">
+          <h2>Start the Game</h2>
+          <h2 class="white-text">Click continue to Start the game, and Cancel to select another option</h2>
+          <a id="continue-modal" class=" modal-close  btn waves-effect green accent-4 white-text ">Continue</a>
+          <a id="cancel-modal" class=" modal-close btn waves-effect red grey-text white-text">Cancel</a>
+        </div>
+
+      </div>
+
+    </div>
+    
+  </div>
+</div>
+
+<!-- Section Two -->
+      <!-- Cards -->
+      <div class="row flip-container">
+        <h3 class="game-question white-text center-align"
+        ></h3 >
+        <p class="white-text center-align"><span> Game Left: <button id = "game-left" class="btn"></button></span>  <span> Hits:  <button id = "correct-guesses" class="btn green"> </button></span> <span>Misses:  <button id = "wrong-guesses"class="btn red "></button></span>  </p>
+        <div id = "quiz-questions"></div>
+      </div>
+
+  <!-- Game Over -->
+      <div id = "show-result" class="row center-align white-text">
+        <h3 id="result-name"></h3>
+        <h4 id="result-score"></h4>
+        <h4 id ="result-text">  </h4>
+        <button id="try-again" class="btn-large">Try Again</button>
+
+      </div>
+    </div>
   </body>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.js"></script>
+  <script src="answers.js"></script>
   <script src="main.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </html>
