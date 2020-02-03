@@ -2,81 +2,6 @@
 let gameLev = "";
 let name = "";
 
-// Modal Trigger
-let modalInstance;
-function modalTrigger() {
-  var elems = document.querySelectorAll(".modal");
-  modalInstance = M.Modal.init(elems, {
-    onOpenEnd: initCarouselModal,
-    dismissible: false
-  });
-}
-
-// Sliders in Modal function
-let sliderInstance;
-function initCarouselModal() {
-  var elems = document.querySelector("#one");
-  sliderInstance = M.Carousel.init(elems, {
-    fullWidth: true,
-    indicators: true
-  });
-}
-
-// Previous and Next Button
-
-// Previous
-document.querySelector(".prev-slide").addEventListener("click", function() {
-  sliderInstance.prev();
-});
-
-// Next
-document.querySelector(".next-slide").addEventListener("click", function() {
-  sliderInstance.next();
-});
-
-// Player Detials Class constructor
-class PlayerDetials {
-  constructor(name, gameLevel) {
-    this.name = name;
-    this.gameLevel = gameLevel;
-  }
-}
-
-// Set Player Name and Level
-let welcomePhrase;
-let gameLevPhrase;
-
-// Flip Class
-class Flips {
-  // Recieves Player details from the get Player Details Function below
-  setFlips(player) {
-    gameLev = player.gameLevel;
-    name = player.name;
-
-    // Create the Dynamic Welcome Phrase with Name
-    welcomePhrase = document.createElement("h3");
-    let innerh2 = document.getElementById("slider1-inner");
-    welcomePhrase.id = "slider-pyschic-name";
-    welcomePhrase.appendChild(document.createTextNode(`Hello ${name}`));
-    document.getElementById("slider-1").insertBefore(welcomePhrase, innerh2);
-
-    // Create Dynamic Difficulty Level Phrase
-    gameLevPhrase = document.createElement("h2");
-    let innergameLevPhrase = document.getElementById("inner-game-lev");
-    gameLevPhrase.id = "slider-player-level";
-    gameLevPhrase.appendChild(
-      document.createTextNode(
-        `The Difficulty level you chose is  ${gameLev.toUpperCase()}`
-      )
-    );
-    document
-      .getElementById("slider-2")
-      .insertBefore(gameLevPhrase, innergameLevPhrase);
-
-    modalTrigger();
-  }
-}
-
 // Form Event Listener
 document
   .querySelector("#form-submit")
@@ -85,7 +10,7 @@ document
 function getPlayerDetials(e) {
   //  Get Player Details function
   if (document.getElementById("name").value != "") {
-    let name = document.getElementById("name").value,
+    let gameName = document.getElementById("name").value,
       chooseLevel = document.getElementsByName("game");
     let gameLevel;
     for (var i = 0, length = chooseLevel.length; i < length; i++) {
@@ -94,36 +19,15 @@ function getPlayerDetials(e) {
       }
     }
 
-    //   Instantiate a New Player Details
-    const player = new PlayerDetials(name, gameLevel);
-
-    // Instatiate Flip class and Pass Player details into the prototype
-    const flip = new Flips();
-    flip.setFlips(player);
+    name = gameName;
+    gameLev = gameLevel;
+    showQuestion();
   } else {
     alert("Please, Enter a name");
   }
 
   e.preventDefault();
 }
-
-// Modal Continue and Cancel Event Listener
-
-// Cancel Modal
-document.querySelector("#cancel-modal").addEventListener("click", function(e) {
-  name = "";
-  document.getElementById("name").value = "";
-  document.getElementById("slider-pyschic-name").remove();
-  document.getElementById("slider-player-level").remove();
-  e.preventDefault;
-});
-
-// Continue Modal
-document.querySelector("#continue-modal").addEventListener("click", function() {
-  document.getElementById("section-one").style.display = "none";
-  document.querySelector(".flip-container").style.display = "block";
-  showQuestion();
-});
 
 // Creare a randomly sorted and shuffled Questions Array
 let sortedQuizes = questions.sort(() => Math.random() - 0.5);
@@ -191,6 +95,9 @@ function showQuestion() {
     outerCardCon.appendChild(innerCardCon);
 
     questionContainer.appendChild(outerCardCon);
+
+    document.getElementById("section-one").style.display = "none";
+    document.querySelector(".flip-container").style.display = "block";
   });
 }
 
