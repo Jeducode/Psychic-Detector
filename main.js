@@ -74,7 +74,7 @@ function showQuestion() {
     let cardImg2 = document.createElement("img");
 
     // Add Classes to Cards
-    outerCardCon.className = "col s12 m4 outer-card-container";
+    outerCardCon.className = "col s4 outer-card-container";
     innerCardCon.className = "card white inner-card-container";
     imgCard1.className = "card-front card-select";
     if (answer.correct) {
